@@ -6,7 +6,7 @@ Este código é usado pelo site da SEMaComp 2016.
 
 LICENÇA
 =======
-Como regra geral, o site não possui licença, e foi realizado pelos organizadores da edição da SEMaComp 2016 com auxilio do tutorial de @djangogirls (http://tutorial.djangogirls.org) e acompanhando o projeto `epcon` de @europython (https://github.com/EuroPython/epcon).
+Como regra geral, o site não possui licença, e foi realizado pelos organizadores da edição da SEMaComp 2016 com auxilio do tutorial de @djangogirls (http://tutorial.djangogirls.org) e acompanhando o projeto `epcon` de @europython (https://github.com/EuroPython/epcon) e `pythonbrasil11-site` de @pythonbrasil (https://github.com/ricoms/pythonbrasil11-site).
 
 Alguns arquivos CSS estão explicitamente marcados como não-gratuítos; esses arquivos implementam o design do site e há regras específicas para seu uso, no caso, não retirar a indicação de autores. Eles ainda estão publicados no GitHub como uma referência para implementação de um novo design.
 
