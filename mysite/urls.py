@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from semacomp2016 import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^post_list/', views.PostList.as_view()),
 ]

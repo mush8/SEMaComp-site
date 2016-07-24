@@ -1,5 +1,8 @@
 from django.shortcuts import render
-
+from django.views.generic import ListView
+from .models import Post
 # Create your views here.
-def post_list(request):
-    return render(request, 'blog/post_list.html', {})
+
+class PostList(ListView):
+    template_name = 'semacomp2016/index.html'
+    model = Post

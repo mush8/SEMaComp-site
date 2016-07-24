@@ -64,7 +64,7 @@ class Attendee(models.Model):
 class Speaker(Attendee):
 
     # session = models.ForeignKey(Session, on_delete=models.CASCADE)
-
+    pass
 
 class SessionCategory(models.Model):
 

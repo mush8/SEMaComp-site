@@ -23,4 +23,5 @@ Não é obrigatório o uso de virtualenv porém é recomendado.
 virtualenv <myvenv>
 source pycon-env/bin/activate
 pip install -r requirements.txt
+npm install
 ```
