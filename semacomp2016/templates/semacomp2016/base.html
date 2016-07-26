@@ -1,6 +1,6 @@
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
+
+<html lang="pt">
 
 <head>
 
@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Creative - Start Bootstrap Theme</title>
+    <title>SEMaComp 2016</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -25,7 +25,7 @@
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-    <link href="{% static 'css/creative.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/creative.css' %}" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,23 +45,23 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand page-scroll" href="">SEMaComp 2016</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#about">Sobre nós</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Services</a>
+                        <a class="page-scroll" href="#services">Programação</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                        <a class="page-scroll" href="#portfolio">Patrocinadores</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="#contact">Contato</a>
                     </li>
                 </ul>
             </div>
@@ -69,33 +69,45 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-
-  {% block main %}
-
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1 id="homeHeading">Participe da SEMaComp 2016</h1>
+                <hr>
+                <p align="center"><strong>18 a 20 de Outubro de 2016 no ICT - Unifesp<br>
+                Av. Cesare Monsueto Giulio Lattes, 1211 - Jardim Santa Ines I<br>
+                São José dos Campos - SP, 12231-280, Brasil</strong></p>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Saiba mais</a>
+            </div>
+        </div>
+    </header>
+  {% block content %}
   {% endblock %}
-
     <section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Let's Get In Touch!</h2>
+                    <h2 class="section-heading">Comissão Organizadora</h2>
                     <hr class="primary">
-                    <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                    <p align="center">Camila Bertini Martins, Flávia Cristina Martins Queiroz Mariano, Ricardo Manhães Savii,<br>
+                      Reginaldo Massanobu Kuroshu, Denise Stringhini, Thiago Castilho de Mello,<br>
+                      Thadeu Alves Senne, Fabio Augusto Faria, Fábio Augusto Menocci Cappabianco</p>
                 </div>
                 <div class="col-lg-4 col-lg-offset-2 text-center">
                     <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>123-456-6789</p>
+                    <p>(12) 3309-9608</p>
+                    <p>(12) 3309-9520</p>
                 </div>
                 <div class="col-lg-4 text-center">
                     <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
+                    <p><a href="mailto:unifesp.semacomp@gmail.com">unifesp.semacomp@gmail.com</a></p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- jQuery -->
-    <script src="{% static 'vendor/jquery/jquery.min.js' %}vendor/jquery/jquery.min.js"></script>
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>

@@ -19,5 +19,6 @@ from semacomp2016 import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^post_list/', views.PostList.as_view()),
+    url(r'^$', views.home, name='home'),
+    url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
 ]

@@ -21,7 +21,7 @@ Não é obrigatório o uso de virtualenv porém é recomendado.
 
 ```bash
 virtualenv <myvenv>
-source pycon-env/bin/activate
+source <myvenv>/bin/activate
 pip install -r requirements.txt
 npm install
 ```

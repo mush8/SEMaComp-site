@@ -1,8 +1,15 @@
 from django.shortcuts import render
 from django.views.generic import ListView
-from .models import Post
+from django.utils import timezone
+
+from .models import *
 # Create your views here.
 
-class PostList(ListView):
-    template_name = 'semacomp2016/index.html'
-    model = Post
+def home(request):
+    sessions = Session.objects.all().order_by('published_date')
+    sponsors = Sponsor.objects.all().order_by('-sponsor_level')
+    return render(request, 'semacomp2016/home.html', {})
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'semacomp2016/post_detail.html', {'post': post})

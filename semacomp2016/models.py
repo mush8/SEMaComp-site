@@ -22,61 +22,33 @@ class Post(models.Model):
 
 class Sponsor(models.Model):
 
-    institution = models.CharField(max_length=200)
+    SPONSOR_LEVEL_PRATA = 1
+    SPONSOR_LEVEL_OURO = 2
+    SPONSOR_LEVEL_DIAMANTE = 3
+    SPONSOR_LEVELS = [
+        (0, _(u"")),
+        (SPONSOR_LEVEL_PRATA, _(u"Prata")),
+        (SPONSOR_LEVEL_OURO, _(u"Ouro")),
+        (SPONSOR_LEVEL_DIAMANTE, _(u"Diamante")),
+    ]
+
+    title = models.CharField(max_length=200, default="", blank=False)
+    sponsor_level = models.IntegerField(default=0,
+        choices=SPONSOR_LEVELS)
+    institution_url = models.URLField(max_length=500, default="", blank=False)
     text = models.TextField()
-    image_url = models.URLField(max_length=500, blank=False)
-    created_date = models.DateTimeField(
-            default=timezone.now)
-    published_date = models.DateTimeField(
-            blank=True, null=True)
+    image = models.ImageField(upload_to = 'semacomp2016/static/img/sponsor/', default = 'semacomp2016/static/img/sponsor/Unifesp.jpg')
 
-    def publish(self):
-        self.published_date = timezone.now()
-        self.save()
+class Speaker(models.Model):
 
-    def __str__(self):
-        return self.institution
-
-class Attendee(models.Model):
-
-    name = models.CharField(max_length=200)
-    institution = models.CharField(max_length=200)
-    text = models.CharField(
-        max_length=60, blank=True,
-        help_text=_('descreva-se em uma linha!'))
-    paid = models.BooleanField(default=False)
-    image_gravatar = models.BooleanField(default=False)
-    image_url = models.URLField(max_length=500, blank=False)
-    spam_recruiting = models.BooleanField(default=False)
-
-    created_date = models.DateTimeField(
-            default=timezone.now)
-    published_date = models.DateTimeField(
-            blank=True, null=True)
-
-    def publish(self):
-        self.published_date = timezone.now()
-        self.save()
+    title = models.CharField(max_length=200, default="", blank=False)
+    institution = models.CharField(max_length=200, default="", blank=False)
+    text = models.TextField()
+    image_url = models.URLField(max_length=500, default="", blank=False)
+    email = models.CharField(max_length=100, default="", blank=False)
 
     def __str__(self):
         return self.name
-
-class Speaker(Attendee):
-
-    # session = models.ForeignKey(Session, on_delete=models.CASCADE)
-    pass
-
-class SessionCategory(models.Model):
-
-    name = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        ordering = ['name']
-        verbose_name = "Categoria de sessão da SEMaComp"
-        verbose_name_plural = "Categorias de sessões da SEMaComp"
 
 class Session(models.Model):
 
@@ -84,26 +56,30 @@ class Session(models.Model):
     AUDIENCE_LEVEL_INTERMEDIATE = 2
     AUDIENCE_LEVEL_EXPERIENCED = 3
     AUDIENCE_LEVELS = [
-        (0, _(u"")),
         (AUDIENCE_LEVEL_NOVICE, _(u"Novato")),
         (AUDIENCE_LEVEL_INTERMEDIATE, _(u"Intermediário")),
         (AUDIENCE_LEVEL_EXPERIENCED, _(u"Experiente")),
     ]
-
-    category = models.ForeignKey(SessionCategory)
-    speaker = models.ForeignKey(Speaker)
-    text = models.TextField()
-    audience_level = models.IntegerField(default=0,
+    audience_level = models.IntegerField(default=1,
         choices=AUDIENCE_LEVELS)
 
-    created_date = models.DateTimeField(
-            default=timezone.now)
-    published_date = models.DateTimeField(
-            blank=True, null=True)
+    SESSION_CATEGORY_TRAINING = 1
+    SESSION_CATEGORY_TALK = 2
+    SESSION_CATEGORY_COMPETITION = 3
+    SESSION_CATEGORIES = [
+        (SESSION_CATEGORY_TRAINING, _(u"Workshop")),
+        (SESSION_CATEGORY_TALK, _(u"Palestra")),
+        (SESSION_CATEGORY_COMPETITION, _(u"Competição")),
+    ]
+    session_category = models.IntegerField(default=1,
+        choices=SESSION_CATEGORIES)
 
-    def publish(self):
-        self.published_date = timezone.now()
-        self.save()
+    speaker = models.ForeignKey(Speaker, on_delete=models.CASCADE)
+    title = models.CharField(max_length=400, default="", blank=True)
+    text = models.TextField()
+
+    start = models.DateTimeField()
+    end = models.DateTimeField()
 
     def __str__(self):
         return self.name

@@ -1,0 +1,130 @@
+{% extends 'semacomp2016/base.html' %}
+
+{% block content %}
+
+<section class="bg-primary" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-heading">Sobre nós</h2>
+                <hr class="light">
+                <p class="text-faded" align="justify">A SEMaComp é uma iniciativa criativa do ICT - Unifesp em parceria com Pesquisadores, Professores e Alunos.
+                O objetivo da Semana da Estatística, Matemática e Computação é a inovação, o intercâmbio de conhecimentos e
+                o desenvolvimento de idéias e projetos de pesquisa. Através de Palestras e Mini-cursos, os participantes aumentarão
+                seu ferramental estatístico, matemático e computacional, impulsionando ainda mais suas pesquisas científicas.</p>
+                <a href="http://www.unifesp.br/campus/sjc/" class="page-scroll btn btn-default btn-xl sr-button">Site ICT-UNIFESP</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Programação</h2>
+                <hr class="primary">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
+                    <h3>Sturdy Templates</h3>
+                    <p class="text-muted">Our templates are updated regularly so they don't break.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
+                    <h3>Ready to Ship</h3>
+                    <p class="text-muted">You can use this theme as is, or you can make changes!</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
+                    <h3>Up to Date</h3>
+                    <p class="text-muted">We update dependencies to keep things fresh.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
+                    <h3>Made with Love</h3>
+                    <p class="text-muted">You have to make your websites with love these days!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio">
+  <aside class="bg-dark">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+          <h2 class="section-heading">Patrocinadores</h2>
+          <hr class="light">
+      </div>
+    </div>
+    <div class="row">
+
+        {% for sponsor in sponsors %}
+        <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box">
+                <a href="{{ sponsor.institution_url }}"><img src="{{ sponsor.image }}" alt="{{ sponsor.institution }}" title="{{ sponsor.institution }}" align="center" /></a>
+            </div>
+        </div>
+        <!--<li class="item">
+          <a href="{{ sponsor.institution_url }}" target="_blank" class="item-link">
+            <p class="category">{{ sponsor.sponsor_level }}</p>
+
+            <div class="imgs">
+              <img src="{{ sponsor.image_url }}" alt="{{ sponsor.institution }}">
+            </div>
+          </a>
+        </li>-->
+        {% endfor %}
+        <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box">
+                <a class="btn btn-primary" href="/en/sponsor/">Seja um patrocinador</a>
+            </div>
+        </div>
+    </div>
+  </aside>
+</section>
+<!--<section id="portfolio">
+  <aside class="bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Patrocinadores</h2>
+                <hr class="light">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+
+        {% for sponsor in sponsors %}
+          <div class="col-lg-3 col-md-6 text-center">
+              <div class="service-box">
+                  <a href="{{ sponsor.institution_url }}"><img src="{{ sponsor.image_url }}" alt="{{ sponsor.institution }}" title="{{ sponsor.institution }}" align="center" /></a>
+              </div>
+          </div>
+        {% endfor %}
+
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box">
+              <a class="btn btn-primary" href="/en/sponsor/">Seja um patrocinador</a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </aside>
+</section>-->
+
+{% endblock %}
