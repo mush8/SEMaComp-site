@@ -8,7 +8,7 @@ from .models import *
 def home(request):
     sessions = Session.objects.all().order_by('published_date')
     sponsors = Sponsor.objects.all().order_by('-sponsor_level')
-    return render(request, 'semacomp2016/home.html', {})
+    return render(request, 'semacomp2016/home.html', {'sponsors': sponsors, 'sessions': sessions})
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)

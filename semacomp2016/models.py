@@ -37,7 +37,8 @@ class Sponsor(models.Model):
         choices=SPONSOR_LEVELS)
     institution_url = models.URLField(max_length=500, default="", blank=False)
     text = models.TextField()
-    image = models.ImageField(upload_to = 'semacomp2016/static/img/sponsor/', default = 'semacomp2016/static/img/sponsor/Unifesp.jpg')
+    image = models.ImageField(upload_to = 'semacomp2016/static/img/sponsor/', )
+    image_url = '../../static/img/sponsor/'
 
 class Speaker(models.Model):
 
